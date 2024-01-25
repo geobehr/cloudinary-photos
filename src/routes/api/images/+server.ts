@@ -8,9 +8,11 @@ export async function GET({ url }) {
     next_cursor: next,
   });
 
+  return json({data: resources, next_cursor});
+
   return json({
-    data: resources.map(({ public_id }: any) => {
-      return { public_id };
+    data: resources.map(({ asset_id }: any) => {
+      return { asset_id };
     }),
     next_cursor,
   });
